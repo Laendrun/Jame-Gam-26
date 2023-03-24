@@ -1,19 +1,16 @@
 class Card
 {
-	constructor(img, text)
+	constructor(img, text, id)
 	{
+		text = "";
+		if (text)
+			this.text = text;
 		this.pos = createVector();
 		this.pos.x = ((width / 2) - (img.width / 2));
 		this.pos.y = ((height / 2) - (img.height / 2));
-		this.visible = true;
+		this.visible = false;
 		this.img = img;
-		this.text = text;
-	}
-
-	setPos(x, y)
-	{
-		this.pos.x = x - (this.img.width / 2);
-		this.pos.y = y - (this.img.height / 2);
+		this.id = id;
 	}
 
 	show()
@@ -33,15 +30,8 @@ class Card
 			text(this.text, 220, 80, 280, 200);
 
 			fill(225, 225, 225);
-			// stroke(225, 225, 225);
-			// rect(220, 320, 280, 280);
 			image(this.img, 220, 320);
-
-
-			// textSize(10);
-			// fill(255);
-			// text(this.text, this.pos.x, this.pos.y);
-			// image(this.img, this.pos.x, this.pos.y);
+			// console.log(this.id);
 		}
 	}
 }
