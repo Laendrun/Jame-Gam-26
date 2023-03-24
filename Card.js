@@ -16,8 +16,8 @@ class Card
 		{
 			fill(125, 125, 125);
 			stroke(125, 125, 125);
-			rect(160, 160, 400, 400);
-			image(this.img, 220, 220);
+			rect(160, 360, 400, 400);
+			image(this.img, 220, 420);
 		}
 	}
 }
