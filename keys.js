@@ -1,6 +1,6 @@
 function press_left()
 {
-	switch_cards();
+	switch_cards('left');
 	anger_status.lvl += 5;
 	if (anger_status.lvl > 100)
 		anger_status.lvl = 100;
@@ -11,7 +11,7 @@ function press_left()
 
 function press_right()
 {
-	switch_cards();
+	switch_cards('right');
 	anger_status.lvl += 4;
 	if (anger_status.lvl > 100)
 		anger_status.lvl = 100;
@@ -22,7 +22,7 @@ function press_right()
 
 function press_up()
 {
-	switch_cards();
+	switch_cards('up');
 	anger_status.lvl -= 3;
 	if (anger_status.lvl < 0)
 		anger_status.lvl = 0;
@@ -37,14 +37,21 @@ function restart()
 	villagers = 0;
 	anger_status.lvl = 0;
 	state = 0;
+	for (let card of cards)
+	{
+		card.fadeLeft = false;
+		card.fadeRight = false;
+		card.fadeUp = false;
+	}
 }
 
-function switch_cards()
+function switch_cards(dir)
 {
 	for (let i = 0; i < cards.length; i++)
 	{
 		if (cards[i].visible)
 		{
+			cards[i].fade(dir);
 			cards[i].visible = false;
 			if (i == cards.length - 1)
 				cards[0].visible = true;

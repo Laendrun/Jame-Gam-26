@@ -63,8 +63,8 @@ function draw()
 		text("Villagers killed: " + villagers, (width / 2 - width / 4), 840);
 
 		arrows();
-		for (let card of cards)
-			card.show();
+		for (let i = cards.length - 1; i >= 0; i--)
+			cards[i].show();
 		anger_status.show(width / 2 - anger_status.width / 2, 10);
 	}
 	else if (state == 3)
