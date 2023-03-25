@@ -18,7 +18,7 @@ You'll be a monster living in a cave near a village and each night you'll have t
 - Leave them 
 
 - [x] Nights counter
-- [ ] Villagers counter
+- [x] Villagers counter
 
 This won't be really enjoyable to play but this will be the MVP.
 
@@ -28,8 +28,8 @@ If I have enough time, I want to implement the following :
 	- [x] If they get enough hint, they'll come and kill you during the day
 	- [x] Indicator for villager's anger ?
 - [ ] Something to do with the money robbed
-	- [ ] Hire someone to reduce the villager's anger
-	- [ ] Hire someone to kill a villager for you (so villagers don't get hint for you when a villager dies)
+	- [x] Hire someone to reduce the villager's anger
+	- [x] Hire someone to kill a villager for you (so villagers don't get hint for you when a villager dies)
 
 ## To-do
 
@@ -38,3 +38,6 @@ If I have enough time, I want to implement the following :
 - [x] Add a Death screen that sums up all the money you gained / how many villagers you killed and how many nights you survived before getting killed by the villagers
 	- [x] Killed villagers count
 	- [x] "you have been killed by angry villagers" text
+- [ ] Display inventory properly when in invetory state
+- [ ] Display a kind of hotbar in playing state to display how much of each items you have
+- [ ] Display texts in a more readable way and all
