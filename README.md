@@ -5,6 +5,8 @@
 - Special Object: `Cards`
 - Rank : N/A
 
+> Arts by [mikoolec](https://mikoolec.itch.io/)
+
 ## Ideas
 
 I thought of something like `Reigns: Her majesty`.
@@ -28,3 +30,11 @@ If I have enough time, I want to implement the following :
 - [ ] Something to do with the money robbed
 	- [ ] Hire someone to reduce the "hint" of the villagers
 	- [ ] Hire someone to kill a villager for you (so villagers don't get hint for you when a villager dies)
+
+## To-do
+
+- [ ] Change the way cards are displayed to be relative to the canvas size
+	- For now, the x and y values are hardcoded
+- [x] Add a Death screen that sums up all the money you gained / how many villagers you killed and how many nights you survived before getting killed by the villagers
+	- [x] Killed villagers count
+	- [x] "you have been killed by angry villagers" text
