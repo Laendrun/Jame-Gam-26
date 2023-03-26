@@ -1,8 +1,9 @@
 function show_shop()
 {
 	let xOff = 50;
-	let yOff = 75;
+	let yOff = 150;
 	let size = 75;
+	textAlign(CENTER);
 	textSize(25);
 	stroke(0);
 	fill(255);
@@ -23,10 +24,17 @@ function buy_item(id)
 		{
 			if (inventory[i].name == items[id - 1].name)
 			{
+				notification.text = "You bought 1 " + items[id - 1].name;
+				notification.visible = true;
 				inventory[i].add(1);
 				money -= items[id - 1].price;
 			}
 		}
+	}
+	else
+	{
+		notification.text = "Not enough money";
+		notification.visible = true;
 	}
 }
 
@@ -42,5 +50,12 @@ function use_item(id)
 		else if (name == 'Darkweb killer')
 			villagers += 3;
 		inventory[id - 1].remove(1);
+		notification.text = "You used " + inventory[id - 1].name;
+		notification.visible = true;
+	}
+	else
+	{
+		notification.text = "Not enough " + inventory[id - 1].name;
+		notification.visible = true;
 	}
 }

@@ -12,12 +12,13 @@ let inventory = [];
 let mem_eras;
 let dw_killer;
 
+let notification;
+
 /*
 States description
 	0: Playing
 	1: Dead
 	2: In shop
-	3: Inventory
 	4: Settings
 */
 
@@ -36,6 +37,7 @@ function setup()
 	items.push(new Item('Memory Eraser', 100));
 	items.push(new Item('Darkweb killer', 150));
 
+	notification = new Notification(50, 75);
 	// setup inventory
 	for (let i = 0; i < items.length; i++)
 		inventory.push(new Item(items[i].name, 0));
@@ -52,6 +54,7 @@ function setup()
 function draw()
 {
 	background(0);
+	notification.show();
 	if (state == 0)
 	{
 		stroke(0);
@@ -61,16 +64,10 @@ function draw()
 		text("Nights: " + nights, (width / 2 - width / 4), 800);
 		text("Money: " + money, (width / 2 - width / 4), 820);
 		text("Villagers killed: " + villagers, (width / 2 - width / 4), 840);
-
 		arrows();
 		for (let i = cards.length - 1; i >= 0; i--)
 			cards[i].show();
 		anger_status.show(width / 2 - anger_status.width / 2, 10);
-	}
-	else if (state == 3)
-	{
-		console.log("inventory state");
-		// show_inventory();
 	}
 	else if (state == 2)
 		show_shop();
