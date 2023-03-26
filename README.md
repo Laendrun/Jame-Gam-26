@@ -69,10 +69,10 @@ If I have enough time, I want to implement the following :
 	- [x] Swipe right to rob villager
 	- [x] Touch / click on the right arrow to rob villager
 	- [x] Swipe down to get to shop
-	- [ ] Add a shop button
-		- [ ] Tap / click on the shop button opens the shop
-	- [ ] Add a help button
-		- [ ] Tap / click on the help button switches to help state
+	- [x] Add a shop button
+		- [x] Tap / click on the shop button opens the shop
+	- [x] Add a help button
+		- [x] Tap / click on the help button switches to help state
 	- [ ] Touching on an item image in the shop buys the item
 	- [ ] Touching on an item image in the hotbar uses the item
 - [ ] Add a hunger bar that you have to keep up not to die

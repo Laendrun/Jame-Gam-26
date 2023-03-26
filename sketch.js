@@ -25,6 +25,10 @@ let arrow_left;
 let arrow_left_pos;
 let arrow_right;
 let arrow_right_pos;
+let question_mark_img;
+let question_mark_pos;
+let shopping_cart_img;
+let shopping_cart_pos;
 let background_img;
 
 /*
@@ -48,6 +52,8 @@ function preload()
 	arrow_left = loadImage('assets/img/arrow_left.png');
 	arrow_right = loadImage('assets/img/arrow_right.png');
 	background_img = loadImage('assets/img/background.png');
+	question_mark_img = loadImage('assets/img/question_mark.png');
+	shopping_cart_img = loadImage('assets/img/shopping_cart.png');
 }
 
 function setup()
@@ -74,6 +80,8 @@ function setup()
 	arrow_up_pos = createVector();
 	arrow_left_pos = createVector();
 	arrow_right_pos = createVector();
+	question_mark_pos = createVector();
+	shopping_cart_pos = createVector();
 	anger_status = new Status('Anger');
 	anger_status.lvl = 0;
 	nights = 0;
@@ -91,10 +99,14 @@ function draw()
 	notification.show();
 	hotbar.update(inventory);
 	hotbar.show();
-	if (state != 1 && state != 3)
+	if (state != 1)
 	{
-		status_texts();
-		help_text();
+		buttons();
+		if (state != 3)
+		{
+			status_texts();
+			help_text();
+		}
 	}
 	if (state == 0)
 	{
@@ -137,21 +149,31 @@ function mouseClicked(event)
 {
 	let x = event.clientX;
 	let y = event.clientY;
-	// check for up arrow
-	if ((x >= arrow_up_pos.x && x <= arrow_up_pos.x + arrow_up.width) &&
-		(y >= arrow_up_pos.y && y <= arrow_up_pos.y + arrow_up.height) && 
-		state == 0)
-		press_up();
-	// check for left arrow
-	if ((x >= arrow_left_pos.x && x <= arrow_left_pos.x + arrow_left.width) &&
-		(y >= arrow_left_pos.y && y <= arrow_left_pos.y + arrow_left.height) &&
-		state == 0)
-		press_left();
-	// check for right arrow
-	if ((x >= arrow_right_pos.x && x <= arrow_right_pos.x + arrow_right.width) &&
-		(y >= arrow_right_pos.y && y <= arrow_right_pos.y + arrow_right.height) &&
-		state == 0)
-		press_right();
+	if (state == 0)
+	{
+		// check for up arrow
+		if ((x >= arrow_up_pos.x && x <= arrow_up_pos.x + arrow_up.width) &&
+			(y >= arrow_up_pos.y && y <= arrow_up_pos.y + arrow_up.height))
+			press_up();
+		// check for left arrow
+		if ((x >= arrow_left_pos.x && x <= arrow_left_pos.x + arrow_left.width) &&
+			(y >= arrow_left_pos.y && y <= arrow_left_pos.y + arrow_left.height))
+			press_left();
+		// check for right arrow
+		if ((x >= arrow_right_pos.x && x <= arrow_right_pos.x + arrow_right.width) &&
+			(y >= arrow_right_pos.y && y <= arrow_right_pos.y + arrow_right.height))
+			press_right();
+	}
+	if (state == 1)
+		restart();
+	// check for shop button clicked
+	if ((x >= shopping_cart_pos.x && x <= shopping_cart_pos.x + shopping_cart_img.width) &&
+		(y >= shopping_cart_pos.y && y <= shopping_cart_pos.y + shopping_cart_img.height))
+		state == 2 ? state = 0 : state = 2;
+	// check for help button clicked
+	if ((x >= question_mark_pos.x && x <= question_mark_pos.x + question_mark_img.width) &&
+		(y >= question_mark_pos.y && y <= question_mark_pos.y + question_mark_img.height))
+		state == 3 ? state = 0 : state = 3;
 }
 
 function swiped(event)
@@ -190,4 +212,14 @@ function help_text()
 	textAlign(CENTER);
 	textSize(15);
 	text("Press H to access help panel.", width / 2, height - 25);
+}
+
+function buttons()
+{
+	image(shopping_cart_img, width - shopping_cart_img.width * 2, 100);
+	shopping_cart_pos.x = width - shopping_cart_img.width * 2;
+	shopping_cart_pos.y = 100;
+	image(question_mark_img, width - shopping_cart_img.width * 2, 155);
+	question_mark_pos.x = width - shopping_cart_img.width * 2;
+	question_mark_pos.y = 155;
 }
