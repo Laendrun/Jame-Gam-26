@@ -6,6 +6,7 @@ function press_left()
 		anger_status.lvl = 100;
 	console.log("Killing villager");
 	villagers++;
+	money += int(random(1, 5));
 	should_die();
 }
 
@@ -16,7 +17,7 @@ function press_right()
 	if (anger_status.lvl > 100)
 		anger_status.lvl = 100;
 	console.log("Rob villager's money");
-	money += int(random(1, 10));	
+	int(random(0, 100) < 20) ? money += int(random(10, 30)) : money += int(random(1, 10));
 	should_die();
 }
 
@@ -42,6 +43,10 @@ function restart()
 		card.fadeLeft = false;
 		card.fadeRight = false;
 		card.fadeUp = false;
+	}
+	for (let item of inventory)
+	{
+		item.count = 0;
 	}
 	cards[int(random(0, cards.length))].visible = true;
 }

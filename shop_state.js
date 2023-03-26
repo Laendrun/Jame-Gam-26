@@ -10,6 +10,7 @@ function show_shop()
 	text("Shop", width / 2, 25);
 	textSize(15);
 	text("Press number key corresponding to the item you wanna buy.", width / 2, 50);
+	text("Press S or ARROW_DOWN to close shop.", width / 2, 70);
 	for (let i = 0; i < items.length; i++)
 		items[i].show(xOff + size * i, yOff, size, i + 1);
 }
