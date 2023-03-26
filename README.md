@@ -7,6 +7,13 @@
 
 > Arts by [mikoolec](https://mikoolec.itch.io/)
 
+
+## Game
+
+The game is not finished yet, the jam isn't finished yet.
+
+Here's the link to the [itch.io](https://laendrun.itch.io/jame-gam-26) page of the game (also under construction).
+
 ## Ideas
 
 I thought of something like `Reigns: Her majesty`.
