@@ -20,8 +20,11 @@ let hotbar_frame;
 let shop_frame;
 let card_frame;
 let arrow_up;
+let arrow_up_pos;
 let arrow_left;
+let arrow_left_pos;
 let arrow_right;
+let arrow_right_pos;
 let background_img;
 
 /*
@@ -66,9 +69,11 @@ function setup()
 
 	notification = new Notification(50, 75);
 	hotbar = new Hotbar((width / 2 - width / 4), 800);
-	// setup inventory
 	for (let i = 0; i < items.length; i++)
 		inventory.push(new Item(items[i].name, 0, items[i].img));
+	arrow_up_pos = createVector();
+	arrow_left_pos = createVector();
+	arrow_right_pos = createVector();
 	anger_status = new Status('Anger');
 	anger_status.lvl = 0;
 	nights = 0;
@@ -126,6 +131,27 @@ function keyPressed()
 		state == 3 ? state = 0 : state = 3;
 	// else
 	// 	console.log(keyCode);
+}
+
+function mouseClicked(event)
+{
+	let x = event.clientX;
+	let y = event.clientY;
+	// check for up arrow
+	if ((x >= arrow_up_pos.x && x <= arrow_up_pos.x + arrow_up.width) &&
+		(y >= arrow_up_pos.y && y <= arrow_up_pos.y + arrow_up.height) && 
+		state == 0)
+		press_up();
+	// check for left arrow
+	if ((x >= arrow_left_pos.x && x <= arrow_left_pos.x + arrow_left.width) &&
+		(y >= arrow_left_pos.y && y <= arrow_left_pos.y + arrow_left.height) &&
+		state == 0)
+		press_left();
+	// check for right arrow
+	if ((x >= arrow_right_pos.x && x <= arrow_right_pos.x + arrow_right.width) &&
+		(y >= arrow_right_pos.y && y <= arrow_right_pos.y + arrow_right.height) &&
+		state == 0)
+		press_right();
 }
 
 function swiped(event)

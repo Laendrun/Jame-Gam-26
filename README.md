@@ -37,18 +37,6 @@ If I have enough time, I want to implement the following :
 - [ ] Something to do with the money robbed
 	- [x] Hire someone to reduce the villager's anger
 	- [x] Hire someone to kill a villager for you (so villagers don't get hint for you when a villager dies)
-- [ ] Add support for touch screen
-	- [x] Swipe up to leave villager
-	- [ ] Touch / click on the up arrow to leave villager
-	- [x] Swipe left to kill villager
-	- [ ] Touch / click on the left arrow to kill villager
-	- [x] Swipe right to rob villager
-	- [ ] Touch / click on the right arrow to rob villager
-	- [ ] Swipe down to get to shop
-	- [ ] Add a shop button
-		- [ ] Tap / click on the shop button opens the shop
-	- [ ] Add a help button
-		- [ ] Tap / click on the help button switches to help state
 
 ## To-do
 
@@ -68,3 +56,27 @@ If I have enough time, I want to implement the following :
 - [x] Chance to get a random item instead of money when robbing a villager
 - [x] Some villagers are richer so you can get more money by robbing them but the anger level goes up quicker
 - [x] Add texts to the help page as well as the controls
+
+- [ ] Change the way cards are displayed and created
+	- [ ] Create a new random card each time instead of filling a number of cards from the beginning
+	- [ ] Each time you choose what to do with a villager, it should create a new card with a random name / image / etc
+
+- [ ] Add support for touch screen
+	- [x] Swipe up to leave villager
+	- [x] Touch / click on the up arrow to leave villager
+	- [x] Swipe left to kill villager
+	- [x] Touch / click on the left arrow to kill villager
+	- [x] Swipe right to rob villager
+	- [x] Touch / click on the right arrow to rob villager
+	- [x] Swipe down to get to shop
+	- [ ] Add a shop button
+		- [ ] Tap / click on the shop button opens the shop
+	- [ ] Add a help button
+		- [ ] Tap / click on the help button switches to help state
+	- [ ] Touching on an item image in the shop buys the item
+	- [ ] Touching on an item image in the hotbar uses the item
+- [ ] Add a hunger bar that you have to keep up not to die
+	- [ ] Change the "Kill villager" by "Eat villager"
+	- [ ] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty
+- [ ] Randomly generated names for villagers
+	- [ ] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers
