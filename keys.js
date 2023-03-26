@@ -4,7 +4,7 @@ function press_left()
 	anger_status.lvl += 5;
 	if (anger_status.lvl > 100)
 		anger_status.lvl = 100;
-	console.log("Killing villager");
+	// console.log("Killing villager");
 	villagers++;
 	money += int(random(1, 5));
 	should_die();
@@ -16,8 +16,8 @@ function press_right()
 	anger_status.lvl += 4;
 	if (anger_status.lvl > 100)
 		anger_status.lvl = 100;
-	console.log("Rob villager's money");
-	int(random(0, 100) < 20) ? money += int(random(10, 30)) : money += int(random(1, 10));
+	// console.log("Rob villager's money");
+	int(random(0, 100) < 5) ? money += int(random(10, 30)) : money += int(random(1, 10));
 	should_die();
 }
 
@@ -27,7 +27,7 @@ function press_up()
 	anger_status.lvl -= 3;
 	if (anger_status.lvl < 0)
 		anger_status.lvl = 0;
-	console.log("Leave villager alone");
+	// console.log("Leave villager alone");
 	should_die();
 }
 

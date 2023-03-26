@@ -26,6 +26,7 @@ class Card
 			// fill(125, 125, 125);
 			// stroke(125, 125, 125);
 			// rect(160, 360, 400, 400);
+			image(card_frame, this.pos.x - 10, this.pos.y - 10);
 			image(this.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeLeft)
@@ -45,6 +46,7 @@ class Card
 			}
 			else
 				this.pos.x -= this.offset * this.fadeMult;
+			image(card_frame, this.pos.x - 10, this.pos.y - 10);
 			image(this.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeRight)
@@ -64,6 +66,7 @@ class Card
 			}
 			else
 				this.pos.x += this.offset * this.fadeMult;
+			image(card_frame, this.pos.x - 10, this.pos.y - 10);
 			image(this.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeUp)
@@ -83,6 +86,7 @@ class Card
 			}
 			else
 				this.pos.y -= this.offset * this.fadeMult;
+			image(card_frame, this.pos.x - 10, this.pos.y - 10);
 			image(this.img, this.pos.x, this.pos.y);
 		}
 	}

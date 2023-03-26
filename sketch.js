@@ -1,6 +1,7 @@
 let cards = [];
 let imgs = [];
-let items_imgs = [];
+let mem_eraser_img;
+let dw_killer_img;
 let anger_status;
 let nights;
 let money;
@@ -16,6 +17,8 @@ let dw_killer;
 let notification;
 let hotbar;
 let hotbar_frame;
+let shop_frame;
+let card_frame;
 let arrow_up;
 let arrow_left;
 let arrow_right;
@@ -25,16 +28,18 @@ States description
 	0: Playing
 	1: Dead
 	2: In shop
-	4: Settings
+	3: Help
 */
 
 function preload()
 {
 	for (let i = 0; i < 5; i++)
 		imgs[i] = loadImage('assets/img/' + i + '.png');
-	items_imgs[0] = loadImage('assets/img/mem_eraser.png');
-	items_imgs[1] = loadImage('assets/img/dw_killer.png');
+	mem_eraser_img = loadImage('assets/img/mem_eraser.png');
+	dw_killer_img = loadImage('assets/img/dw_killer.png');
 	hotbar_frame = loadImage('assets/img/inventory_frame.png');
+	shop_frame = loadImage('assets/img/inventory_frame75.png');
+	card_frame = loadImage('assets/img/card_frame.png');
 	arrow_up = loadImage('assets/img/arrow_up.png');
 	arrow_left = loadImage('assets/img/arrow_left.png');
 	arrow_right = loadImage('assets/img/arrow_right.png');
@@ -46,8 +51,8 @@ function setup()
 	for (let i = 0; i < 5; i++)
 		cards[i] = new Card(imgs[i], i);
 	cards[int(random(0, cards.length))].visible = true;
-	items.push(new Item('Memory Eraser', 100, items_imgs[0]));
-	items.push(new Item('Darkweb killer', 150, items_imgs[1]));
+	items.push(new Item('Memory Eraser', 100, mem_eraser_img));
+	items.push(new Item('Darkweb killer', 150, dw_killer_img));
 
 	notification = new Notification(50, 75);
 	hotbar = new Hotbar((width / 2 - width / 4), 800);
@@ -70,20 +75,20 @@ function draw()
 	notification.show();
 	hotbar.update(inventory);
 	hotbar.show();
+	if (state != 1 && state != 3)
+	{
+		status_texts();
+		help_text();
+	}
 	if (state == 0)
 	{
-		stroke(0);
-		textSize(10);
-		fill(255);
-		textAlign(CENTER);
-		text("Nights: " + nights, 50, 840);
-		text("Money: " + money, 50, 860);
-		text("Villagers killed: " + villagers, 50, 880);
 		arrows();
 		for (let i = cards.length - 1; i >= 0; i--)
 			cards[i].show();
-		anger_status.show(width / 2 - anger_status.width / 2, 10);
+		anger_status.show(width / 2 - anger_status.width / 2, 25);
 	}
+	else if (state == 3)
+		show_help();
 	else if (state == 2)
 		show_shop();
 	else if (state == 1)
@@ -102,10 +107,32 @@ function keyPressed()
 		state == 2 ? state = 0 : state = 2;
 	else if (keyCode == 82 && state == 1)
 		restart();
-	else if ((keyCode >= 49 || keyCode <= 57) && state == 2) // 1 - 9
+	else if ((keyCode >= 49 && keyCode <= 57) && state == 2) // 1 - 9
 		buy_item(keyCode - 48);
-	else if ((keyCode >= 49 || keyCode <= 57) && state == 0)
+	else if ((keyCode >= 49 && keyCode <= 57) && state == 0)
 		use_item(keyCode - 48);
-	else
-		console.log(keyCode);
+	else if ((keyCode == 72))
+		state == 3 ? state = 0 : state = 3;
+	// else
+	// 	console.log(keyCode);
+}
+
+function status_texts()
+{
+	stroke(0);
+	fill(255);
+	textAlign(CENTER);
+	textSize(20);
+	text("Nights: " + nights, width * 7 / 8, 25);
+	text("Money: " + money, width * 7 / 8, 50);
+	text("Villagers killed: " + villagers, width * 7 / 8, 75);
+}
+
+function help_text()
+{
+	stroke(0);
+	fill(255);
+	textAlign(CENTER);
+	textSize(15);
+	text("Press H to access help panel.", width / 2, height - 25);
 }

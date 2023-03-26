@@ -10,9 +10,10 @@ class Item
 
 	show(x, y, size, id)
 	{
-		stroke(0);
-		fill(127, 127, 127);
-		rect(x, y, size, size);
+		// stroke(0);
+		// fill(127, 127, 127);
+		// rect(x, y, size, size);
+		image(shop_frame, x, y);
 		image(this.img, x + this.img.width - size / 2, y + this.img.height - size / 2);
 		fill(255);
 		textSize(8);
@@ -30,6 +31,7 @@ class Item
 	remove(num)
 	{
 		this.count -= num;
+		this.count < 0 ? this.count = 0: this.count = this.count;
 	}
 }
 
