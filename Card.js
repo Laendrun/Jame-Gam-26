@@ -41,6 +41,7 @@ class Card
 				this.pos.y = this.defaultPos.y;
 				this.fadeLeft = false;
 				this.visible = false;
+				this.showNext()
 			}
 			else
 				this.pos.x -= this.offset * this.fadeMult;
@@ -59,6 +60,7 @@ class Card
 				this.pos.y = this.defaultPos.y;
 				this.fadeRight = false;
 				this.visible = false;
+				this.showNext()
 			}
 			else
 				this.pos.x += this.offset * this.fadeMult;
@@ -77,6 +79,7 @@ class Card
 				this.pos.y = this.defaultPos.y;
 				this.fadeUp = false;
 				this.visible = false;
+				this.showNext()
 			}
 			else
 				this.pos.y -= this.offset * this.fadeMult;
@@ -101,5 +104,13 @@ class Card
 				console.error('Unknow direction');
 				break ;
 		}
+	}
+
+	showNext()
+	{
+		if (this.id == cards.length - 1)
+			cards[0].visible = true;
+		else
+			cards[this.id + 1].visible = true;
 	}
 }

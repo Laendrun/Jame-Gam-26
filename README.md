@@ -38,8 +38,12 @@ If I have enough time, I want to implement the following :
 - [x] Add a Death screen that sums up all the money you gained / how many villagers you killed and how many nights you survived before getting killed by the villagers
 	- [x] Killed villagers count
 	- [x] "you have been killed by angry villagers" text
-- [ ] Animate the cards when choosing left / right / up instead of just switching to the new one
+- [x] Animate the cards when choosing left / right / up instead of just switching to the new one
+	- Not the best animation but it's an animation
+- [ ] Display a notification when you buy an item in shop
+- [ ] Display a notification when you use an item
 - [ ] Display inventory properly when in invetory state
+	- Will not do that, will do a hotbar instead
 - [ ] Display a kind of hotbar in playing state to display how much of each items you have
 - [ ] Display texts in a more readable way and all
 - [ ] Chance to get a random item instead of money when robbing a villager

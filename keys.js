@@ -43,6 +43,7 @@ function restart()
 		card.fadeRight = false;
 		card.fadeUp = false;
 	}
+	cards[int(random(0, cards.length))].visible = true;
 }
 
 function switch_cards(dir)
@@ -53,10 +54,6 @@ function switch_cards(dir)
 		{
 			cards[i].fade(dir);
 			cards[i].visible = false;
-			if (i == cards.length - 1)
-				cards[0].visible = true;
-			else
-				cards[i + 1].visible = true;
 			return ;
 		}
 	}
