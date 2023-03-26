@@ -37,6 +37,18 @@ If I have enough time, I want to implement the following :
 - [ ] Something to do with the money robbed
 	- [x] Hire someone to reduce the villager's anger
 	- [x] Hire someone to kill a villager for you (so villagers don't get hint for you when a villager dies)
+- [ ] Add support for touch screen
+	- [x] Swipe up to leave villager
+	- [ ] Touch / click on the up arrow to leave villager
+	- [x] Swipe left to kill villager
+	- [ ] Touch / click on the left arrow to kill villager
+	- [x] Swipe right to rob villager
+	- [ ] Touch / click on the right arrow to rob villager
+	- [ ] Swipe down to get to shop
+	- [ ] Add a shop button
+		- [ ] Tap / click on the shop button opens the shop
+	- [ ] Add a help button
+		- [ ] Tap / click on the help button switches to help state
 
 ## To-do
 
@@ -53,6 +65,6 @@ If I have enough time, I want to implement the following :
 	- Will not do that, will do a hotbar instead
 - [x] Display a kind of hotbar in playing state to display how much of each items you have
 - [x] Display texts in a more readable way and all
-- [ ] Chance to get a random item instead of money when robbing a villager
+- [x] Chance to get a random item instead of money when robbing a villager
 - [x] Some villagers are richer so you can get more money by robbing them but the anger level goes up quicker
-- [ ] Add texts to the help page as well as the controls
+- [x] Add texts to the help page as well as the controls

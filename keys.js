@@ -16,8 +16,16 @@ function press_right()
 	anger_status.lvl += 4;
 	if (anger_status.lvl > 100)
 		anger_status.lvl = 100;
-	// console.log("Rob villager's money");
-	int(random(0, 100) < 5) ? money += int(random(10, 30)) : money += int(random(1, 10));
+	if (random(0, 100) < 10)
+	{
+		// random item
+		let id = int(random(0, inventory.lenght));
+		inventory[id].add(1);
+		notification.text = "You found 1 " + inventory[id].name;
+		notification.visible = true;
+	}
+	else
+		int(random(0, 100) < 5) ? money += int(random(10, 30)) : money += int(random(1, 10));
 	should_die();
 }
 

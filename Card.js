@@ -26,15 +26,13 @@ class Card
 			// fill(125, 125, 125);
 			// stroke(125, 125, 125);
 			// rect(160, 360, 400, 400);
+			// image(background_img, 0,0);
 			image(card_frame, this.pos.x - 10, this.pos.y - 10);
 			image(this.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeLeft)
 		{
 			this.offset++;
-			fill(0);
-			stroke(0);
-			rect(160, 360, 400, 400);
 			if (this.offset > 10)
 			{
 				this.offset = 0;
@@ -52,9 +50,10 @@ class Card
 		else if (this.fadeRight)
 		{
 			this.offset++;
-			fill(0);
-			stroke(0);
-			rect(160, 360, 400, 400);
+			// fill(0);
+			// stroke(0);
+			// rect(160, 360, 400, 400);
+			// image(background_img, 0,0);
 			if (this.offset > 10)
 			{
 				this.offset = 0;
@@ -72,9 +71,10 @@ class Card
 		else if (this.fadeUp)
 		{
 			this.offset++;
-			fill(0);
-			stroke(0);
-			rect(160, 360, 400, 400);
+			// fill(0);
+			// stroke(0);
+			// rect(160, 360, 400, 400);
+			// image(background_img, 0,0);
 			if (this.offset > 10)
 			{
 				this.offset = 0;

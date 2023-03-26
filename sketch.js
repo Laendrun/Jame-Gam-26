@@ -22,6 +22,7 @@ let card_frame;
 let arrow_up;
 let arrow_left;
 let arrow_right;
+let background_img;
 
 /*
 States description
@@ -43,10 +44,19 @@ function preload()
 	arrow_up = loadImage('assets/img/arrow_up.png');
 	arrow_left = loadImage('assets/img/arrow_left.png');
 	arrow_right = loadImage('assets/img/arrow_right.png');
+	background_img = loadImage('assets/img/background.png');
 }
 
 function setup()
 {
+	let options = {
+		preventDefault: true
+	};
+	let hammer = new Hammer(document.body, options);
+	hammer.get('swipe').set({
+		direction: Hammer.DIRECTION_ALL
+	});
+	hammer.on("swipe", swiped);
 	createCanvas(720, 900);
 	for (let i = 0; i < 5; i++)
 		cards[i] = new Card(imgs[i], i);
@@ -70,8 +80,9 @@ function setup()
 }
 
 function draw()
-{
-	background(0);
+{7
+	// background(0);
+	image(background_img, 0, 0);
 	notification.show();
 	hotbar.update(inventory);
 	hotbar.show();
@@ -115,6 +126,24 @@ function keyPressed()
 		state == 3 ? state = 0 : state = 3;
 	// else
 	// 	console.log(keyCode);
+}
+
+function swiped(event)
+{
+	/* directions:
+	 * 2 => swipe left
+	 * 8 => swipe up
+	 * 16 => swipe down
+	 * 4 => swipe right
+	 */
+	if (event.direction == 2 && state == 0)
+		press_left();
+	else if (event.direction == 8 && state == 0)
+		press_up();
+	else if (event.direction == 4 && state == 0)
+		press_right();
+	else if (event.direction == 16 && state != 1)
+		state == 2 ? state = 0 : state = 2;
 }
 
 function status_texts()
