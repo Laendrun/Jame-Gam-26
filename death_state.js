@@ -14,7 +14,7 @@ function show_death_screen()
 
 function should_die()
 {
-	if (random(20, 100) < anger_status.lvl)
+	if (random(20, 100) < anger_status.lvl || hunger_status.lvl == 0)
 		state = 1;
 	else
 		nights++;

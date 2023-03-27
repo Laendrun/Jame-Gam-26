@@ -44,6 +44,9 @@ class Villager
 		anger_status.lvl += 5;
 		if (anger_status.lvl > 100)
 			anger_status.lvl = 100;
+		hunger_status.lvl += 7;
+		if (hunger_status.lvl > 100)
+			hunger_status.lvl = 100;
 		villagers++;
 		money += int(random(1, 5));
 	}
@@ -53,6 +56,9 @@ class Villager
 		anger_status.lvl += 4;
 		if (anger_status.lvl > 100)
 			anger_status.lvl = 100;
+		hunger_status.lvl -= 4;
+		if (hunger_status.lvl < 0)
+			hunger_status.lvl = 0;
 		if (this.rich)
 		{
 			if (random(0, 100) < 5)
@@ -74,6 +80,9 @@ class Villager
 		anger_status.lvl -= 3;
 		if (anger_status.lvl < 0)
 			anger_status.lvl = 0;
+		hunger_status.lvl -= 4;
+		if (hunger_status.lvl == 0)
+			state = 1;
 	}
 
 	show()

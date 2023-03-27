@@ -2,6 +2,7 @@ let imgs = [];
 let feminine_names = [];
 let masculine_names = [];
 let anger_status;
+let hunger_status;
 
 // Counters
 let nights;
@@ -94,6 +95,8 @@ function setup()
 	shopping_cart_pos = createVector();
 	anger_status = new Status('Anger');
 	anger_status.lvl = 0;
+	hunger_status = new Status('Hunger');
+	hunger_status.lvl = 50;
 	nights = 0;
 	money = 0;
 	villagers = 0;
@@ -121,7 +124,8 @@ function draw()
 	{
 		arrows();
 		card.show();
-		anger_status.show(width / 2 - anger_status.width / 2, 25);
+		anger_status.show(width / 2 + anger_status.width, 25);
+		hunger_status.show(width / 2 - hunger_status.width, 25);
 	}
 	else if (state == 3)
 		show_help();
