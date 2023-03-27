@@ -58,8 +58,8 @@ If I have enough time, I want to implement the following :
 - [x] Add texts to the help page as well as the controls
 
 - [ ] Change the way cards are displayed and created
-	- [ ] Create a new random card each time instead of filling a number of cards from the beginning
-	- [ ] Each time you choose what to do with a villager, it should create a new card with a random name / image / etc
+	- [x] Create a new random card each time instead of filling a number of cards from the beginning
+	- [x] Each time you choose what to do with a villager, it should create a new card with a random name / image / etc
 
 - [ ] Add support for touch screen
 	- [x] Swipe up to leave villager
@@ -78,5 +78,5 @@ If I have enough time, I want to implement the following :
 - [ ] Add a hunger bar that you have to keep up not to die
 	- [ ] Change the "Kill villager" by "Eat villager"
 	- [ ] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty
-- [ ] Randomly generated names for villagers
-	- [ ] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers
+- [x] Randomly generated names for villagers
+	- [x] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers

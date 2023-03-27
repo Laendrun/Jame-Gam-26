@@ -1,21 +1,18 @@
-let cards = [];
 let imgs = [];
-let mem_eraser_img;
-let dw_killer_img;
+let feminine_names = [];
+let masculine_names = [];
 let anger_status;
+
+// Counters
 let nights;
 let money;
 let villagers;
-let state;
-
-let items = [];
-let inventory = [];
-
 let mem_eras;
 let dw_killer;
-
-let notification;
-let hotbar;
+// Game state
+let state;
+let new_villager;
+// images and images positions (when needed)
 let hotbar_frame;
 let shop_frame;
 let card_frame;
@@ -30,18 +27,21 @@ let question_mark_pos;
 let shopping_cart_img;
 let shopping_cart_pos;
 let background_img;
+let mem_eraser_img;
+let dw_killer_img;
 
-/*
-States description
-	0: Playing
-	1: Dead
-	2: In shop
-	3: Help
-*/
+// Globally used things
+let notification;
+let hotbar;
+let villager;
+let card;
+
+let items = [];
+let inventory = [];
 
 function preload()
 {
-	for (let i = 0; i < 5; i++)
+	for (let i = 0; i < 3; i++)
 		imgs[i] = loadImage('assets/img/' + i + '.png');
 	mem_eraser_img = loadImage('assets/img/mem_eraser.png');
 	dw_killer_img = loadImage('assets/img/dw_killer.png');
@@ -58,6 +58,10 @@ function preload()
 
 function setup()
 {
+	new_villager = false;
+	// Fill names array
+	fill_names();
+	// Handle Swiping on screen
 	let options = {
 		preventDefault: true
 	};
@@ -66,15 +70,21 @@ function setup()
 		direction: Hammer.DIRECTION_ALL
 	});
 	hammer.on("swipe", swiped);
-	createCanvas(720, 900);
-	for (let i = 0; i < 5; i++)
-		cards[i] = new Card(imgs[i], i);
-	cards[int(random(0, cards.length))].visible = true;
+	// end of swipe handling
+	// notification to be used everywhere
+	notification = new Notification(50, 75);
+	// hotbar
+	hotbar = new Hotbar((width / 2 - width / 4), 800);
+	// setting up items
 	items.push(new Item('Memory Eraser', 100, mem_eraser_img));
 	items.push(new Item('Darkweb killer', 150, dw_killer_img));
+	// setting up villaer
+	villager = new Villager();
 
-	notification = new Notification(50, 75);
-	hotbar = new Hotbar((width / 2 - width / 4), 800);
+	createCanvas(720, 900);
+
+	card = new Card(villager);
+
 	for (let i = 0; i < items.length; i++)
 		inventory.push(new Item(items[i].name, 0, items[i].img));
 	arrow_up_pos = createVector();
@@ -93,8 +103,7 @@ function setup()
 }
 
 function draw()
-{7
-	// background(0);
+{
 	image(background_img, 0, 0);
 	notification.show();
 	hotbar.update(inventory);
@@ -111,8 +120,7 @@ function draw()
 	if (state == 0)
 	{
 		arrows();
-		for (let i = cards.length - 1; i >= 0; i--)
-			cards[i].show();
+		card.show();
 		anger_status.show(width / 2 - anger_status.width / 2, 25);
 	}
 	else if (state == 3)
@@ -121,6 +129,12 @@ function draw()
 		show_shop();
 	else if (state == 1)
 		show_death_screen();
+	if (new_villager)
+	{
+		villager = new Villager();
+		card = new Card(villager);
+		new_villager = false;
+	}
 }
 
 function keyPressed()
@@ -222,4 +236,45 @@ function buttons()
 	image(question_mark_img, width - shopping_cart_img.width * 2, 155);
 	question_mark_pos.x = width - shopping_cart_img.width * 2;
 	question_mark_pos.y = 155;
+}
+
+function fill_names()
+{
+	feminine_names =
+	[
+		'Rose',
+		'Ava',
+		'Eleanor',
+		'Lucy',
+		'Beatrice',
+		'Genevieve',
+		'Adeline',
+		'Edith',
+		'Elizabeth'
+	];
+
+	masculine_names =
+	[
+		'Oliver',
+		'Miles',
+		'Sebastian',
+		'James',
+		'Henry',
+		'Thomas',
+		'Alexander',
+		'William',
+		'Dante'
+	];
+
+	wealthy_mnames =
+	[
+		"Baron",
+		"Sir"
+	];
+
+	wealthy_fnames =
+	[
+		"Baroness",
+		"Lady"
+	];
 }

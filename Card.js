@@ -1,16 +1,14 @@
 class Card
 {
-	constructor(img, id)
+	constructor(villager)
 	{
 		this.pos = createVector();
 		this.defaultPos = createVector();
-		this.pos.x = ((width / 2) - (img.width / 2));
-		this.pos.y = ((height / 2) - (img.height / 8));
+		this.villager = villager;
+		this.pos.x = ((width / 2) - (villager.img.width / 2));
+		this.pos.y = ((height / 2) - (villager.img.height / 8));
 		this.defaultPos.x = this.pos.x;
 		this.defaultPos.y = this.pos.y;
-		this.visible = false;
-		this.img = img;
-		this.id = id;
 		this.fadeLeft = false;
 		this.fadeRight = false;
 		this.fadeUp = false;
@@ -21,14 +19,10 @@ class Card
 
 	show()
 	{
-		if (this.visible && !this.fadeLeft && !this.fadeRight && !this.fadeUp)
+		if (!this.fadeLeft && !this.fadeRight && !this.fadeUp)
 		{
-			// fill(125, 125, 125);
-			// stroke(125, 125, 125);
-			// rect(160, 360, 400, 400);
-			// image(background_img, 0,0);
 			image(card_frame, this.pos.x - 10, this.pos.y - 10);
-			image(this.img, this.pos.x, this.pos.y);
+			image(this.villager.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeLeft)
 		{
@@ -45,15 +39,11 @@ class Card
 			else
 				this.pos.x -= this.offset * this.fadeMult;
 			image(card_frame, this.pos.x - 10, this.pos.y - 10);
-			image(this.img, this.pos.x, this.pos.y);
+			image(this.villager.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeRight)
 		{
 			this.offset++;
-			// fill(0);
-			// stroke(0);
-			// rect(160, 360, 400, 400);
-			// image(background_img, 0,0);
 			if (this.offset > 10)
 			{
 				this.offset = 0;
@@ -66,15 +56,11 @@ class Card
 			else
 				this.pos.x += this.offset * this.fadeMult;
 			image(card_frame, this.pos.x - 10, this.pos.y - 10);
-			image(this.img, this.pos.x, this.pos.y);
+			image(this.villager.img, this.pos.x, this.pos.y);
 		}
 		else if (this.fadeUp)
 		{
 			this.offset++;
-			// fill(0);
-			// stroke(0);
-			// rect(160, 360, 400, 400);
-			// image(background_img, 0,0);
 			if (this.offset > 10)
 			{
 				this.offset = 0;
@@ -87,8 +73,12 @@ class Card
 			else
 				this.pos.y -= this.offset * this.fadeMult;
 			image(card_frame, this.pos.x - 10, this.pos.y - 10);
-			image(this.img, this.pos.x, this.pos.y);
+			image(this.villager.img, this.pos.x, this.pos.y);
 		}
+		textAlign(CENTER);
+		textSize(20);
+		fill(255);
+		text(this.villager.name, width / 2, 750);
 	}
 
 	fade(dir)
@@ -112,9 +102,6 @@ class Card
 
 	showNext()
 	{
-		if (this.id == cards.length - 1)
-			cards[0].visible = true;
-		else
-			cards[this.id + 1].visible = true;
+		new_villager = true;
 	}
 }
