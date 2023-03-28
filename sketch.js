@@ -42,7 +42,7 @@ let inventory = [];
 
 function preload()
 {
-	for (let i = 0; i < 3; i++)
+	for (let i = 0; i < 4; i++)
 		imgs[i] = loadImage('assets/img/' + i + '.png');
 	mem_eraser_img = loadImage('assets/img/mem_eraser.png');
 	dw_killer_img = loadImage('assets/img/dw_killer.png');

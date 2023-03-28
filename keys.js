@@ -25,6 +25,7 @@ function restart()
 	money = 0;
 	villagers = 0;
 	anger_status.lvl = 0;
+	hunger_status.lvl = 0;
 	state = 0;
 	card.fadeLeft = false;
 	card.fadeRight = false;

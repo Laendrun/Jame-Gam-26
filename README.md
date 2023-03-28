@@ -75,8 +75,9 @@ If I have enough time, I want to implement the following :
 		- [x] Tap / click on the help button switches to help state
 	- [ ] Touching on an item image in the shop buys the item
 	- [ ] Touching on an item image in the hotbar uses the item
-- [ ] Add a hunger bar that you have to keep up not to die
-	- [ ] Change the "Kill villager" by "Eat villager"
-	- [ ] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty
+- [x] Add a hunger bar that you have to keep up not to die
+	- [x] Change the "Kill villager" by "Eat villager"
+	- [x] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty
 - [x] Randomly generated names for villagers
 	- [x] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers
+- [ ] Add an energy bar item to fill up the hunger bar (150)
