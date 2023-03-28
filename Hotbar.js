@@ -34,4 +34,14 @@ class Hotbar
 		for (let item of items)
 			this.items.push(new Item(item.name, item.price, item.img, item.count));
 	}
+
+	touchItem(x, y)
+	{
+		for (let i = 0; i < this.items.length; i++)
+		{
+			if ((x >= this.pos.x + i * this.width && x <= this.pos.x + (i * this.width) + this.width) &&
+				(y >= this.pos.y && y <= this.pos.y + this.height))
+				inventory[i].use();
+		}
+	}
 }

@@ -38,25 +38,3 @@ function buy_item(id)
 		notification.visible = true;
 	}
 }
-
-function use_item(id)
-{
-	if (id < 1 || id > inventory.length)
-		return ;
-	if (inventory[id - 1].count > 0)
-	{
-		let name = inventory[id - 1].name;
-		if (name == 'Memory Eraser')
-			anger_status.lvl = 0;
-		else if (name == 'Darkweb killer')
-			villagers += 3;
-		inventory[id - 1].remove(1);
-		notification.text = "You used " + inventory[id - 1].name;
-		notification.visible = true;
-	}
-	else
-	{
-		notification.text = "Not enough " + inventory[id - 1].name;
-		notification.visible = true;
-	}
-}

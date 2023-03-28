@@ -42,7 +42,7 @@ let inventory = [];
 
 function preload()
 {
-	for (let i = 0; i < 4; i++)
+	for (let i = 0; i < 5; i++)
 		imgs[i] = loadImage('assets/img/' + i + '.png');
 	mem_eraser_img = loadImage('assets/img/mem_eraser.png');
 	dw_killer_img = loadImage('assets/img/dw_killer.png');
@@ -154,9 +154,10 @@ function keyPressed()
 	else if (keyCode == 82 && state == 1)
 		restart();
 	else if ((keyCode >= 49 && keyCode <= 57) && state == 2) // 1 - 9
-		buy_item(keyCode - 48);
+		inventory[keyCode - 49].buy();
+		// buy_item(keyCode - 48);
 	else if ((keyCode >= 49 && keyCode <= 57) && state == 0)
-		use_item(keyCode - 48);
+		inventory[keyCode - 49].use();
 	else if ((keyCode == 72))
 		state == 3 ? state = 0 : state = 3;
 	// else
@@ -181,6 +182,8 @@ function mouseClicked(event)
 		if ((x >= arrow_right_pos.x && x <= arrow_right_pos.x + arrow_right.width) &&
 			(y >= arrow_right_pos.y && y <= arrow_right_pos.y + arrow_right.height))
 			press_right();
+		if (hotbar.touchItem(x, y, 0))
+			console.log('Touching item in hotbar');
 	}
 	if (state == 1)
 		restart();

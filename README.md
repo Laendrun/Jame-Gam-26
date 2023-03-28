@@ -74,7 +74,7 @@ If I have enough time, I want to implement the following :
 	- [x] Add a help button
 		- [x] Tap / click on the help button switches to help state
 	- [ ] Touching on an item image in the shop buys the item
-	- [ ] Touching on an item image in the hotbar uses the item
+	- [x] Touching on an item image in the hotbar uses the item
 - [x] Add a hunger bar that you have to keep up not to die
 	- [x] Change the "Kill villager" by "Eat villager"
 	- [x] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty

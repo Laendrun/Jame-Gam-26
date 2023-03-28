@@ -81,7 +81,7 @@ class Villager
 		if (anger_status.lvl < 0)
 			anger_status.lvl = 0;
 		hunger_status.lvl -= 4;
-		if (hunger_status.lvl == 0)
+		if (hunger_status.lvl <= 0)
 			state = 1;
 	}
 

@@ -10,9 +10,6 @@ class Item
 
 	show(x, y, size, id)
 	{
-		// stroke(0);
-		// fill(127, 127, 127);
-		// rect(x, y, size, size);
 		image(shop_frame, x, y);
 		image(this.img, x + this.img.width - size / 2, y + this.img.height - size / 2);
 		fill(255);
@@ -32,6 +29,36 @@ class Item
 	{
 		this.count -= num;
 		this.count < 0 ? this.count = 0: this.count = this.count;
+	}
+
+	use()
+	{
+		if (this.count > 0)
+		{
+			if (this.name == 'Memory Eraser')
+				anger_status.lvl = 0;
+			else if (this.name == 'Darkweb killer')
+				villagers += 3;
+			this.remove(1);
+			notification.text = "You used " + this.name;
+			notification.visible = true;
+		}
+		else
+		{
+			notification.text = "Not enough " + this.name;
+			notification.visible = true;
+		}
+	}
+
+	buy()
+	{
+		if (money >= this.price)
+		{
+			this.add(1);
+			money -= this.price;
+			notification.text = "You bought 1 " + this.name;
+			notification.visible = true;
+		}
 	}
 }
 
