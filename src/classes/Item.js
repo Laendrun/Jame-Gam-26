@@ -39,6 +39,8 @@ class Item
 				anger_status.lvl = 0;
 			else if (this.name == 'Darkweb killer')
 				villagers += 3;
+			else if (this.name == 'Chocolate bar')
+				hunger_status.lvl += 35;
 			this.remove(1);
 			notification.text = "You used " + this.name;
 			notification.visible = true;
@@ -59,12 +61,10 @@ class Item
 			notification.text = "You bought 1 " + this.name;
 			notification.visible = true;
 		}
+		else
+		{
+			notification.text = "Not enough money";
+			notification.visible = true;
+		}
 	}
 }
-
-/*
-Items description
-
-Memory Eraser (100) : Sets the anger level to 0
-Darkweb killer (150) : Kills 3 villagers without upping the anger level
-*/

@@ -30,12 +30,14 @@ let shopping_cart_pos;
 let background_img;
 let mem_eraser_img;
 let dw_killer_img;
+let choc_bar_img;
 
 // Globally used things
 let notification;
 let hotbar;
 let villager;
 let card;
+let shop;
 
 let items = [];
 let inventory = [];
@@ -46,6 +48,7 @@ function preload()
 		imgs[i] = loadImage('assets/img/' + i + '.png');
 	mem_eraser_img = loadImage('assets/img/mem_eraser.png');
 	dw_killer_img = loadImage('assets/img/dw_killer.png');
+	choc_bar_img = loadImage('assets/img/choc_bar.png');
 	hotbar_frame = loadImage('assets/img/inventory_frame.png');
 	shop_frame = loadImage('assets/img/inventory_frame75.png');
 	card_frame = loadImage('assets/img/card_frame.png');
@@ -79,15 +82,17 @@ function setup()
 	// setting up items
 	items.push(new Item('Memory Eraser', 100, mem_eraser_img));
 	items.push(new Item('Darkweb killer', 150, dw_killer_img));
+	items.push(new Item('Chocolate bar', 150, choc_bar_img));
 	// setting up villaer
 	villager = new Villager();
+	shop = new Shop();
 
 	createCanvas(720, 900);
 
 	card = new Card(villager);
 
 	for (let i = 0; i < items.length; i++)
-		inventory.push(new Item(items[i].name, 0, items[i].img));
+		inventory.push(new Item(items[i].name, items[i].price, items[i].img));
 	arrow_up_pos = createVector();
 	arrow_left_pos = createVector();
 	arrow_right_pos = createVector();
@@ -130,7 +135,7 @@ function draw()
 	else if (state == 3)
 		show_help();
 	else if (state == 2)
-		show_shop();
+		shop.show();
 	else if (state == 1)
 		show_death_screen();
 	if (new_villager)
@@ -154,10 +159,16 @@ function keyPressed()
 	else if (keyCode == 82 && state == 1)
 		restart();
 	else if ((keyCode >= 49 && keyCode <= 57) && state == 2) // 1 - 9
-		inventory[keyCode - 49].buy();
-		// buy_item(keyCode - 48);
+	{
+		if (keyCode - 49 < inventory.length)
+			inventory[keyCode - 49].buy();
+	}
 	else if ((keyCode >= 49 && keyCode <= 57) && state == 0)
-		inventory[keyCode - 49].use();
+	if (keyCode - 49 < inventory.length)
+	{
+		if (keyCode - 49 < inventory.length)
+			inventory[keyCode - 49].use();
+	}
 	else if ((keyCode == 72))
 		state == 3 ? state = 0 : state = 3;
 	// else
@@ -182,9 +193,10 @@ function mouseClicked(event)
 		if ((x >= arrow_right_pos.x && x <= arrow_right_pos.x + arrow_right.width) &&
 			(y >= arrow_right_pos.y && y <= arrow_right_pos.y + arrow_right.height))
 			press_right();
-		if (hotbar.touchItem(x, y, 0))
-			console.log('Touching item in hotbar');
+		hotbar.touchItem(x, y);
 	}
+	if (state == 2)
+		shop.touchItem(x, y);
 	if (state == 1)
 		restart();
 	// check for shop button clicked

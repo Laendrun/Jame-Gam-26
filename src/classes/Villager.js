@@ -44,7 +44,7 @@ class Villager
 		anger_status.lvl += 5;
 		if (anger_status.lvl > 100)
 			anger_status.lvl = 100;
-		hunger_status.lvl += 7;
+		hunger_status.lvl += 9;
 		if (hunger_status.lvl > 100)
 			hunger_status.lvl = 100;
 		villagers++;

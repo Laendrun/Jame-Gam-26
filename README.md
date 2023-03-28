@@ -57,11 +57,11 @@ If I have enough time, I want to implement the following :
 - [x] Some villagers are richer so you can get more money by robbing them but the anger level goes up quicker
 - [x] Add texts to the help page as well as the controls
 
-- [ ] Change the way cards are displayed and created
+- [x] Change the way cards are displayed and created
 	- [x] Create a new random card each time instead of filling a number of cards from the beginning
 	- [x] Each time you choose what to do with a villager, it should create a new card with a random name / image / etc
 
-- [ ] Add support for touch screen
+- [x] Add support for touch screen
 	- [x] Swipe up to leave villager
 	- [x] Touch / click on the up arrow to leave villager
 	- [x] Swipe left to kill villager
@@ -73,11 +73,11 @@ If I have enough time, I want to implement the following :
 		- [x] Tap / click on the shop button opens the shop
 	- [x] Add a help button
 		- [x] Tap / click on the help button switches to help state
-	- [ ] Touching on an item image in the shop buys the item
+	- [x] Touching on an item image in the shop buys the item
 	- [x] Touching on an item image in the hotbar uses the item
 - [x] Add a hunger bar that you have to keep up not to die
 	- [x] Change the "Kill villager" by "Eat villager"
 	- [x] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty
 - [x] Randomly generated names for villagers
 	- [x] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers
-- [ ] Add an energy bar item to fill up the hunger bar (150)
+- [ ] Add an energy bar item to fill up the hunger bar by 35 (cost:150)
