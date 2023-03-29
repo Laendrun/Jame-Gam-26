@@ -82,7 +82,10 @@ class Villager
 			anger_status.lvl = 0;
 		hunger_status.lvl -= 3;
 		if (hunger_status.lvl <= 0)
+		{
+			died_of_hunger = true;
 			state = 1;
+		}
 	}
 
 	show()

@@ -25,6 +25,6 @@ function show_help()
 	text("1 - 9 / Click on item", 300, 225);
 	text("Restart game (when lost):", 50, 250);
 	text("R / Click anywhere", 300, 250);
-
-	text("Clicking on items to buy / use them doesn't work yet", 50, 300);
+	text("Mute / Unmute music", 50,275);
+	text("M", 300, 275);
 }

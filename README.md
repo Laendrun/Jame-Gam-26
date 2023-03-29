@@ -86,4 +86,4 @@ If I have enough time, I want to implement the following :
 - [x] Add ambience music
 	- [x] Add ambience music that is always playing
 	- [x] Add the ability to mute and resume ambience music
-- [ ] Display a different text on the death page wether you died of hunger or if the villagers came and killed you
+- [x] Display a different text on the death page wether you died of hunger or if the villagers came and killed you

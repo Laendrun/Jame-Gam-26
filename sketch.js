@@ -46,6 +46,7 @@ let hotbar;
 let villager;
 let card;
 let shop;
+let died_of_hunger;
 
 let items = [];
 let inventory = [];
@@ -75,6 +76,7 @@ function setup()
 {
 	playing = false;
 	muted = false;
+	died_of_hunger = false;
 	new_villager = false;
 	// Fill names array
 	fill_names();
