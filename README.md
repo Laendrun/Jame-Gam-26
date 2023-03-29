@@ -7,6 +7,8 @@
 
 > Arts by [mikoolec](https://mikoolec.itch.io/)
 
+> Music by [spacewolf](https://soundcloud.com/spacewolfmusic)
+
 
 ## Game
 
@@ -80,4 +82,7 @@ If I have enough time, I want to implement the following :
 	- [x] Eating a villager fills up your hunger bar, that way you can't just leave every villager go without a sort of penalty
 - [x] Randomly generated names for villagers
 	- [x] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers
-- [ ] Add an energy bar item to fill up the hunger bar by 35 (cost:150)
+- [x] Add an energy bar item to fill up the hunger bar by 35 (cost:150)
+- [ ] Add ambience music
+	- [ ] Add ambience music that is always playing
+	- [ ] Add the ability to mute and resume ambience music

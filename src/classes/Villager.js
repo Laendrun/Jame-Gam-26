@@ -77,10 +77,10 @@ class Villager
 
 	leave()
 	{
-		anger_status.lvl -= 3;
+		anger_status.lvl -= 5;
 		if (anger_status.lvl < 0)
 			anger_status.lvl = 0;
-		hunger_status.lvl -= 4;
+		hunger_status.lvl -= 3;
 		if (hunger_status.lvl <= 0)
 			state = 1;
 	}

@@ -32,6 +32,10 @@ let mem_eraser_img;
 let dw_killer_img;
 let choc_bar_img;
 
+// sounds / musics
+let ambience;
+let playing;
+
 // Globally used things
 let notification;
 let hotbar;
@@ -58,10 +62,12 @@ function preload()
 	background_img = loadImage('assets/img/background.png');
 	question_mark_img = loadImage('assets/img/question_mark.png');
 	shopping_cart_img = loadImage('assets/img/shopping_cart.png');
+	ambience = loadSound('assets/sound/jamegam_spacewolf.mp3');
 }
 
 function setup()
 {
+	playing = false;
 	new_villager = false;
 	// Fill names array
 	fill_names();
@@ -148,6 +154,7 @@ function draw()
 
 function keyPressed()
 {
+	ambienceSound();
 	if ((keyCode == 65 || keyCode == 37) && state == 0)
 		press_left();
 	else if ((keyCode == 87 || keyCode == 38) && state == 0)
@@ -175,8 +182,19 @@ function keyPressed()
 	// 	console.log(keyCode);
 }
 
+function ambienceSound()
+{
+	getAudioContext().resume();
+	if (!playing)
+	{
+		ambience.loop();
+		playing = !playing;
+	}
+}
+
 function mouseClicked(event)
 {
+	ambienceSound();
 	let x = event.clientX;
 	let y = event.clientY;
 	if (state == 0)
