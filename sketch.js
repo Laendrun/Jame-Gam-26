@@ -27,6 +27,9 @@ let question_mark_img;
 let question_mark_pos;
 let shopping_cart_img;
 let shopping_cart_pos;
+let speaker_on_img;
+let speaker_off_img;
+let speaker_pos;
 let background_img;
 let mem_eraser_img;
 let dw_killer_img;
@@ -35,6 +38,7 @@ let choc_bar_img;
 // sounds / musics
 let ambience;
 let playing;
+let muted;
 
 // Globally used things
 let notification;
@@ -62,12 +66,15 @@ function preload()
 	background_img = loadImage('assets/img/background.png');
 	question_mark_img = loadImage('assets/img/question_mark.png');
 	shopping_cart_img = loadImage('assets/img/shopping_cart.png');
+	speaker_off_img = loadImage('assets/img/speaker_off.png');
+	speaker_on_img = loadImage('assets/img/speaker_on.png');
 	ambience = loadSound('assets/sound/jamegam_spacewolf.mp3');
 }
 
 function setup()
 {
 	playing = false;
+	muted = false;
 	new_villager = false;
 	// Fill names array
 	fill_names();
@@ -104,6 +111,7 @@ function setup()
 	arrow_right_pos = createVector();
 	question_mark_pos = createVector();
 	shopping_cart_pos = createVector();
+	speaker_pos = createVector();
 	anger_status = new Status('Anger');
 	anger_status.lvl = 0;
 	hunger_status = new Status('Hunger');
@@ -119,6 +127,10 @@ function setup()
 function draw()
 {
 	image(background_img, 0, 0);
+	if (muted)
+		ambience.setVolume(0);
+	else
+		ambience.setVolume(1);
 	notification.show();
 	hotbar.update(inventory);
 	hotbar.show();
@@ -171,13 +183,17 @@ function keyPressed()
 			inventory[keyCode - 49].buy();
 	}
 	else if ((keyCode >= 49 && keyCode <= 57) && state == 0)
-	if (keyCode - 49 < inventory.length)
 	{
 		if (keyCode - 49 < inventory.length)
-			inventory[keyCode - 49].use();
+		{
+			if (keyCode - 49 < inventory.length)
+				inventory[keyCode - 49].use();
+		}
 	}
-	else if ((keyCode == 72))
+	else if (keyCode == 72)
 		state == 3 ? state = 0 : state = 3;
+	else if (keyCode == 77)
+		muted = !muted;
 	// else
 	// 	console.log(keyCode);
 }
@@ -225,6 +241,10 @@ function mouseClicked(event)
 	if ((x >= question_mark_pos.x && x <= question_mark_pos.x + question_mark_img.width) &&
 		(y >= question_mark_pos.y && y <= question_mark_pos.y + question_mark_img.height))
 		state == 3 ? state = 0 : state = 3;
+	// check for sound button clicked
+	if ((x >= speaker_pos.x && x <= speaker_pos.x + speaker_off_img.width) &&
+		(y >= speaker_pos.y && y <= speaker_pos.y + speaker_off_img.height))
+		muted = !muted;
 }
 
 function swiped(event)
@@ -273,6 +293,12 @@ function buttons()
 	image(question_mark_img, width - shopping_cart_img.width * 2, 155);
 	question_mark_pos.x = width - shopping_cart_img.width * 2;
 	question_mark_pos.y = 155;
+	if (!muted)
+		image(speaker_on_img, width - speaker_on_img.width * 2, 210);
+	else
+		image(speaker_off_img, width - speaker_off_img.width * 2, 210);
+	speaker_pos.x = width - speaker_off_img.width * 2;
+	speaker_pos.y = 210;
 }
 
 function fill_names()

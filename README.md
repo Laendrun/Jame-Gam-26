@@ -83,6 +83,7 @@ If I have enough time, I want to implement the following :
 - [x] Randomly generated names for villagers
 	- [x] Prefix name with *Sir* or *Baron* or other terms like this for richer villagers
 - [x] Add an energy bar item to fill up the hunger bar by 35 (cost:150)
-- [ ] Add ambience music
-	- [ ] Add ambience music that is always playing
-	- [ ] Add the ability to mute and resume ambience music
+- [x] Add ambience music
+	- [x] Add ambience music that is always playing
+	- [x] Add the ability to mute and resume ambience music
+- [ ] Display a different text on the death page wether you died of hunger or if the villagers came and killed you
