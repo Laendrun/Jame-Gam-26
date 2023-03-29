@@ -1,4 +1,7 @@
-let imgs = [];
+let mas_imgs = [];
+let fem_imgs = [];
+let rich_mas_imgs = [];
+let rich_fem_imgs = [];
 let feminine_names = [];
 let masculine_names = [];
 let anger_status;
@@ -53,8 +56,16 @@ let inventory = [];
 
 function preload()
 {
-	for (let i = 0; i < 5; i++)
-		imgs[i] = loadImage('assets/img/' + i + '.png');
+	// for (let i = 0; i < 5; i++)
+		// imgs[i] = loadImage('assets/img/' + i + '.png');
+	for (let i = 0; i < 3; i++)
+		mas_imgs[i] = loadImage('assets/img/masculine/' + i + '.png');
+	for (let i = 0; i < 3; i++)
+		fem_imgs[i] = loadImage('assets/img/feminine/' + i + '.png');
+	for (let i = 0; i < 2; i++)
+		rich_mas_imgs[i] = loadImage('assets/img/masculine/rich/' + i + '.png');
+	for (let i = 0; i < 2; i++)
+		rich_fem_imgs[i] = loadImage('assets/img/feminine/rich/' + i + '.png');
 	mem_eraser_img = loadImage('assets/img/mem_eraser.png');
 	dw_killer_img = loadImage('assets/img/dw_killer.png');
 	choc_bar_img = loadImage('assets/img/choc_bar.png');

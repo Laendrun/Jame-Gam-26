@@ -17,9 +17,9 @@ function show_death_screen()
 
 function should_die()
 {
-	if (random(20, 100) < anger_status.lvl || hunger_status.lvl == 0)
+	if (random(20, 100) < anger_status.lvl || hunger_status.lvl >= 100)
 	{
-		if (hunger_status.lvl == 0)
+		if (hunger_status.lvl == 100)
 			died_of_hunger = true;
 		state = 1;
 	}

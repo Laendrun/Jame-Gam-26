@@ -6,11 +6,12 @@ class Villager
 		this.rich = int(random(0, 100) < 15) ? true : false;
 		this.name = this.setName();
 		this.img = this.setImage();
+		this.lastId = null;
 	}
 
 	setName()
 	{
-		let name = null;
+		let name = '';
 		if (this.masculine)
 		{
 			if (this.rich)
@@ -35,7 +36,43 @@ class Villager
 	setImage()
 	{
 		let img = null;
-		img = imgs[int(random(0, imgs.length))];
+		let id = null;
+		if (this.masculine)
+		{
+			if (this.rich)
+			{
+				while (id == this.lastId)
+					id = int(random(0, rich_mas_imgs.length));
+				img = rich_mas_imgs[id];
+				this.lastId = id;
+			}
+			else
+			{
+				while (id == this.lastId)
+					id = int(random(0, mas_imgs.length));
+				img = mas_imgs[id];
+				this.lastId = id;
+			}
+
+		}
+		else
+		{
+			if (this.rich)
+			{
+				while (id == this.lastId)
+					id = int(random(0, rich_fem_imgs.length));
+				img = rich_fem_imgs[id];
+				this.lastId = id;
+			}
+			else
+			{
+				while (id == this.lastId)
+					id = int(random(0, fem_imgs.length));
+				img = fem_imgs[id];
+				this.lastId = id;
+			}
+
+		}
 		return (img);
 	}
 
@@ -44,9 +81,9 @@ class Villager
 		anger_status.lvl += 5;
 		if (anger_status.lvl > 100)
 			anger_status.lvl = 100;
-		hunger_status.lvl += 9;
-		if (hunger_status.lvl > 100)
-			hunger_status.lvl = 100;
+		hunger_status.lvl -= 9;
+		if (hunger_status.lvl <= 0)
+			hunger_status.lvl = 0;
 		villagers++;
 		money += int(random(1, 5));
 	}
@@ -56,9 +93,9 @@ class Villager
 		anger_status.lvl += 4;
 		if (anger_status.lvl > 100)
 			anger_status.lvl = 100;
-		hunger_status.lvl -= 4;
-		if (hunger_status.lvl < 0)
-			hunger_status.lvl = 0;
+		hunger_status.lvl += 4;
+		if (hunger_status.lvl >= 100)
+			hunger_status.lvl = 100;
 		if (this.rich)
 		{
 			if (random(0, 100) < 5)
@@ -80,11 +117,10 @@ class Villager
 		anger_status.lvl -= 5;
 		if (anger_status.lvl < 0)
 			anger_status.lvl = 0;
-		hunger_status.lvl -= 3;
-		if (hunger_status.lvl <= 0)
+		hunger_status.lvl += 3;
+		if (hunger_status.lvl >= 100)
 		{
 			died_of_hunger = true;
-			state = 1;
 		}
 	}
 
